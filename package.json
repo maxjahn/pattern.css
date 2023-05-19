@@ -1,15 +1,15 @@
 {
   "name": "pattern.css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CSS library of modern background patterns",
   "main": "pattern.scss",
   "unpkg": "dist/pattern.min.css",
   "scripts": {
-    "build-autoprefix": "postcss -u autoprefixer --no-map.inline --autoprefixer.browsers \"cover 99.5%\" -r dist/*.css",
-    "build-dist": "node-sass --output-style expanded --source-map true pattern.scss dist/pattern.css && node-sass --source-map true --output-style compressed pattern.scss dist/pattern.min.css",
+    "build-autoprefix": "npx postcss -u autoprefixer --no-map.inline --autoprefixer.browsers \"cover 99.5%\" -r dist/*.css",
+    "build-dist": "sass --style expanded pattern.scss dist/pattern.css && sass --style compressed pattern.scss dist/pattern.min.css",
     "build": "npm run build-dist && npm run build-autoprefix"
   },
-  "author": "bansal-io <hello@bansal.io>",
+  "author": "Max Jahn <max@maxjahn.at>",
   "license": "MIT",
   "keywords": [
     "css",

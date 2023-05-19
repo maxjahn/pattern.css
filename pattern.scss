@@ -1,6 +1,8 @@
 $pattern-prefix : 'pattern' !default;
 
-$pattern-sizes : (sm:10px,
+$pattern-sizes : (
+    xs: 5px,
+    sm:10px,
     md:25px,
     lg:50px,
     xl:100px,
@@ -14,6 +16,7 @@ $pattern-list: ('checks',
     'vertical-lines',
     'horizontal-lines',
     'diagonal-lines',
+    'crosshatch',
     'vertical-stripes',
     'horizontal-stripes',
     'diagonal-stripes',
@@ -119,6 +122,23 @@ $size in $pattern-sizes {
                     currentColor 1px,
                     transparent 0,
                     transparent 50%);
+            background-size: #{$size} #{$size};
+        }
+    }
+    // .bg-crosshatch-{sm, md, lg, xl}
+    @if index($pattern-list, 'crosshatch') {
+        .#{$pattern-prefix}-crosshatch-#{$name} {
+            background-image: repeating-linear-gradient(45deg,
+                    currentColor 0,
+                    currentColor 1px,
+                    transparent 0,
+                    transparent 50%),
+                    repeating-linear-gradient(135deg,
+                    currentColor 0,
+                    currentColor 1px,
+                    transparent 0,
+                    transparent 50%)
+                    ;
             background-size: #{$size} #{$size};
         }
     }
